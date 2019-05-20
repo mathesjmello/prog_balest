@@ -34,6 +34,14 @@ public class Arrow : MonoBehaviour
         {
             other.gameObject.GetComponent<Enimg>().TakeDamege();       
         }
+        if (other.gameObject.GetComponent<Enimg2>() != null)
+        {
+            other.gameObject.GetComponent<Enimg2>().TakeDamege();       
+        }
+        if (other.gameObject.GetComponent<Enimg3>() != null)
+        {
+            other.gameObject.GetComponent<Enimg3>().TakeDamege();       
+        }
         Destroy(gameObject);
     }
 }

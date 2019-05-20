@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SpamManeger : MonoBehaviour
 {
-    public GameObject Enimg;
-    public Transform SpamTranform;
-    private Vector3 _spamPosition;
-    public float CriateTime=4;
+    public GameObject Enimg1,Enimg2;
+    public Transform SpamTrans1;
+    private Vector3 _spamPosi1;
+    public float CriateTime=12;
     
     // Start is called before the first frame update
     void Start()
     {
-        _spamPosition = SpamTranform.position;
-        Invoke(nameof(CriateNew), CriateTime);
+        _spamPosi1 = SpamTrans1.position;
+        Invoke(nameof(Criate1), CriateTime);
+        Invoke(nameof(Criate2), CriateTime*1.4f);
     }
 
     
@@ -24,9 +25,14 @@ public class SpamManeger : MonoBehaviour
         
     }
 
-    void CriateNew()
+    void Criate1()
     {
-        Instantiate(Enimg, new Vector3(Random.Range(-20, 20), _spamPosition.y, _spamPosition.z), SpamTranform.rotation);
-        Invoke(nameof(CriateNew), CriateTime);
+        Instantiate(Enimg1, new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
+        Invoke(nameof(Criate1), CriateTime);
+    }
+    void Criate2()
+    {
+        Instantiate(Enimg2, new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
+        Invoke(nameof(Criate2), CriateTime*1.4f);
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Script;
 using UnityEngine;
 
-public class Enimg : MonoBehaviour
+public class Enimg3 : MonoBehaviour
 {
-
     public int Life;
     public float Speed = 1;
     
@@ -13,13 +13,12 @@ public class Enimg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TarguetTransform = FindObjectOfType<Gate>().transform;
+        TarguetTransform = FindObjectOfType<ShotLocal>().transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         MoveToPosition();
         if (Life<=0)
         {
@@ -35,6 +34,6 @@ public class Enimg : MonoBehaviour
     void MoveToPosition()
     {
         float step = Speed * Time. deltaTime;
-        transform. position = Vector3. MoveTowards(transform. position, TarguetTransform. position, step);
+        transform. position = Vector3. MoveTowards(transform. position, new Vector3(TarguetTransform.position.x+Random.Range(-10,10), TarguetTransform.position.y, TarguetTransform.position.z+Random.Range(-1,1)), step);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpamManeger : MonoBehaviour
 {
-    public GameObject Enimg1,Enimg2;
+    public GameObject Enimg1,Enimg2, Enimg3;
     public Transform SpamTrans1;
     private Vector3 _spamPosi1;
     public float CriateTime=12;
@@ -15,6 +15,7 @@ public class SpamManeger : MonoBehaviour
         _spamPosi1 = SpamTrans1.position;
         Invoke(nameof(Criate1), CriateTime);
         Invoke(nameof(Criate2), CriateTime*1.4f);
+        Invoke(nameof(Criate3), CriateTime*2f);
     }
 
     
@@ -34,5 +35,10 @@ public class SpamManeger : MonoBehaviour
     {
         Instantiate(Enimg2, new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
         Invoke(nameof(Criate2), CriateTime*1.4f);
+    }
+    void Criate3()
+    {
+        Instantiate(Enimg3, new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z+Random.Range(-0.5f,0.5f)), SpamTrans1.rotation);
+        Invoke(nameof(Criate3), CriateTime*2f);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Script;
 using UnityEngine;
 
 public class Enimg : MonoBehaviour
@@ -37,4 +38,6 @@ public class Enimg : MonoBehaviour
         float step = Speed * Time. deltaTime;
         transform. position = Vector3. MoveTowards(transform. position, TarguetTransform. position, step);
     }
+
+    
 }

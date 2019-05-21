@@ -311,7 +311,7 @@ MonoBehaviour:
   Enimg1: {fileID: 8383828896650159157, guid: edc2ed3b9aaa3904d9d1623673c261b0, type: 3}
   Enimg2: {fileID: 8383828896650159157, guid: f8ae6edd72848e940b5eaaf92bb53cac, type: 3}
   SpamTrans1: {fileID: 1255454389}
-  CriateTime: 1
+  CriateTime: 6
 --- !u!4 &744938385
 Transform:
   m_ObjectHideFlags: 0

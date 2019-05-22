@@ -15,10 +15,12 @@
         </e>
         <e p="Script" t="Include">
           <e p="Arrow.cs" t="Include" />
+          <e p="BaseEnimig.cs" t="Include" />
           <e p="BowControl.cs" t="Include" />
           <e p="Enimg.cs" t="Include" />
           <e p="Enimg2.cs" t="Include" />
           <e p="Enimg3.cs" t="Include" />
+          <e p="Enimg4.cs" t="Include" />
           <e p="Gate.cs" t="Include" />
           <e p="Interfaces.cs" t="Include" />
           <e p="ShotLocal.cs" t="Include" />

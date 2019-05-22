@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8383828896650159153}
   - component: {fileID: 8383828896650159152}
   - component: {fileID: 8383828896650159155}
-  - component: {fileID: 8412591900964177680}
+  - component: {fileID: 5106217700014964522}
   m_Layer: 0
-  m_Name: Enim3
+  m_Name: Enim4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8383828896650159157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6149498, y: -0.79, z: 5.53}
-  m_LocalScale: {x: 0.415, y: 0.415, z: 0.415}
+  m_LocalPosition: {x: 0.7933, y: -0.14, z: 5.3309}
+  m_LocalScale: {x: 0.77173394, y: 0.8784304, z: 0.813234}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3535417ff36174c48953a4ce80bb8217, type: 2}
+  - {fileID: 2100000, guid: c750d8c35ccd23240acba276c07b4988, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8412591900964177680
+--- !u!114 &5106217700014964522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,10 +102,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8383828896650159157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223a44b6fc3f3634a90ff72a6d636924, type: 3}
+  m_Script: {fileID: 11500000, guid: 960beb47185b4d7cb4acfa65c6cf63f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
-  _life: 1
-  Speed: 1
   TarguetTransform: {fileID: 0}
+  Speed: 1
+  _speed: 0
+  _life: 5

@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5118c69cfd7f9a45a597ae5e580e8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 1
+  _speed: 0
+  _life: 1
   Speed: 1
   TarguetTransform: {fileID: 0}

@@ -2,13 +2,9 @@
 
 namespace Script
 {
-    public class Enimg3 : BaseEnimig
+    public class Enimg4: BaseEnimig
     {
-    
-        public override void SetTarguet()
-        {           
-            TarguetTransform = FindObjectOfType<ShotLocal>().transform;
-        }
+        
         void Update()
         {
             Move();

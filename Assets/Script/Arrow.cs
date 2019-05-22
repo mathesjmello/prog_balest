@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Script;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
@@ -15,11 +16,6 @@ public class Arrow : MonoBehaviour
         Destroy(gameObject, 3);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void LateUpdate()
     {
       
@@ -30,17 +26,9 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.GetComponent<Enimg>() != null)
+        if (other.gameObject.GetComponent<BaseEnimig>() != null)
         {
-            other.gameObject.GetComponent<Enimg>().TakeDamege();       
-        }
-        if (other.gameObject.GetComponent<Enimg2>() != null)
-        {
-            other.gameObject.GetComponent<Enimg2>().TakeDamege();       
-        }
-        if (other.gameObject.GetComponent<Enimg3>() != null)
-        {
-            other.gameObject.GetComponent<Enimg3>().TakeDamege();       
+            other.gameObject.GetComponent<BaseEnimig>().Damege();       
         }
         Destroy(gameObject);
     }

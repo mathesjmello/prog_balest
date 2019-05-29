@@ -22,7 +22,7 @@ namespace Script
 
     public interface IWapom
     {
-        int Damege { get; set; }
+        int HitForce { get; set; }
         void Attack();
     }
     

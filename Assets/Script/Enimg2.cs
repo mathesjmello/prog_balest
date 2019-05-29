@@ -4,6 +4,15 @@ namespace Script
 {
     public class Enimg2 : BaseEnimig
     {
+        private Vector3 _trig;
+        
+        
+        void Start()
+        {
+
+            _trig = new Vector3(TarguetTransform.position.x + Random.Range(-5, 5), TarguetTransform.position.y,
+                TarguetTransform.position.z + 0.5f);
+        }
         void Update()
         {
             Move();
@@ -18,7 +27,11 @@ namespace Script
         public override void Move()
         {
             float step = Speed * Time. deltaTime;
-            transform. position = Vector3. MoveTowards(transform. position, new Vector3(TarguetTransform.position.x+Random.Range(-10,10), TarguetTransform.position.y), step);
+            transform. position = Vector3. MoveTowards(transform.position, _trig, step);
+            if (Vector3.Distance(transform.position,_trig) < 0.1f)
+            {
+                Shot();
+            }
         }
     }
 }

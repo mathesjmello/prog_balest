@@ -17,7 +17,7 @@ namespace Script
 
     public interface IInstansable
     {
-        void Create(Vector3 position, Quaternion rotation);
+        IInstansable Create(Vector3 position, Quaternion rotation);
     }
 
     public interface IWapom

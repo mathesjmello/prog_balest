@@ -26,7 +26,8 @@ public class BowControl : MonoBehaviour
 
     private void MouseMove()
     {
-        transform.Rotate((Input.GetAxis("Mouse Y") * _rotSpeed * Time.deltaTime), (Input.GetAxis("Mouse X") * _rotSpeed * Time.deltaTime), 0, Space.World);
+        var mouse = new Vector2(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        transform.Rotate(-mouse.x * _rotSpeed * Time.deltaTime, mouse.y * _rotSpeed * Time.deltaTime, 0, Space.Self);
         transform.position= new Vector3(Input.GetAxis("Horizontal")*Time.deltaTime*Range, transform.position.y, transform.position.z);
     }
 

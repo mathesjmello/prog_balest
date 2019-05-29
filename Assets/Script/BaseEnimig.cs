@@ -4,6 +4,10 @@ namespace Script
 {
     public abstract class BaseEnimig : MonoBehaviour, IDamegeable, IInstansable, IMovable, IWapom
     {
+        private int _last;
+        public int Pool = 3;
+        private IInstansable[] Tiros;
+        public TiroDano Tiro;
         
         public Transform TarguetTransform;       
         public float Speed = 1;
@@ -32,6 +36,13 @@ namespace Script
         private void Awake()
         {
             SetTarguet();
+            
+            Tiros = new IInstansable[Pool];
+            
+            for (int i = 0; i < Tiros.Length; i++)
+            {
+                Tiros[i] = Tiro;
+            }
         }
         
         private void OnDie()
@@ -46,9 +57,22 @@ namespace Script
         }
 
 
-        public void Create(Vector3 position, Quaternion rotation)
+        public IInstansable Create(Vector3 position, Quaternion rotation)
         {
-            Instantiate(gameObject, position, rotation);
+            return Instantiate(this, position, rotation);
+        }
+
+        private float _lastShoot;
+        public float Duration = 2;
+        
+        public virtual void Shot()
+        {
+            if(Time.timeSinceLevelLoad - _lastShoot < Duration)
+                return;
+            
+            _lastShoot = Time.timeSinceLevelLoad;
+            Tiros[_last] = Tiros[_last].Create(transform.position+ new Vector3(0.5f,0), transform.localRotation);
+            _last = (_last+1)%Pool;
         }
 
 

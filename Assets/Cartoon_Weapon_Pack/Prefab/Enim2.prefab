@@ -105,7 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5118c69cfd7f9a45a597ae5e580e8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pool: 5
+  Tiro: {fileID: 108055102611088332, guid: 9d5a62be4f03fc34a9b22c5c79274b9a, type: 3}
+  TarguetTransform: {fileID: 0}
+  Speed: 1
   _speed: 0
   _life: 1
-  Speed: 1
-  TarguetTransform: {fileID: 0}
+  _force: 0
+  Duration: 2

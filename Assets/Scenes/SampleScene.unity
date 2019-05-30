@@ -12688,6 +12688,11 @@ PrefabInstance:
       propertyPath: m_MatchWidthOrHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1812678007536622789, guid: 18825ef3fb4f59345b38f8b2f57ba9aa,
+        type: 3}
+      propertyPath: m_Name
+      value: resetButton
+      objectReference: {fileID: 0}
     - target: {fileID: 1812678008644002809, guid: 18825ef3fb4f59345b38f8b2f57ba9aa,
         type: 3}
       propertyPath: m_ChildAlignment

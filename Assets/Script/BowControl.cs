@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BowControl : MonoBehaviour
 {
-    
-    [SerializeField] private float _atakSpeed = 0.5f;
-    [SerializeField] private float _rotSpeed = 20;
+    private float _lastShoot;
+    public float _atakSpeed = 0.5f;
+    public float _rotSpeed = 100;
     public float Range=10;
     public Transform FireSpot;
     public GameObject Arrow;
@@ -35,5 +35,26 @@ public class BowControl : MonoBehaviour
     {
        var tmp = Instantiate(Arrow,FireSpot.position, FireSpot.rotation);
         Invoke(nameof(FireArrow),_atakSpeed);
+    }
+
+    public void NormalizeAttak()
+    {
+        StartCoroutine(NormAtt());
+    }
+
+    public void NormalizeRot()
+    {
+        StartCoroutine(NormRot());
+    }
+
+    IEnumerator NormAtt()
+    {
+            yield return new WaitForSeconds(5);
+            _atakSpeed = 0.5f;     
+    }
+    IEnumerator NormRot()
+    {
+        yield return new WaitForSeconds(5);
+        _rotSpeed = 100;
     }
 }

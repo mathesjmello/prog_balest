@@ -15,6 +15,7 @@ namespace Script
         }
         void Update()
         {
+            transform.LookAt(Bow.transform);
             Move();
         }
 

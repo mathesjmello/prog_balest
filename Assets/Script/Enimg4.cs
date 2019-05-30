@@ -7,6 +7,7 @@ namespace Script
         
         void Update()
         {
+            transform.LookAt(Bow.transform);
             Move();
         }
 
@@ -14,7 +15,7 @@ namespace Script
         {
             float step = Speed * Time. deltaTime;
             transform. position = Vector3. MoveTowards(transform. position, new Vector3(TarguetTransform.position.x, TarguetTransform.position.y, TarguetTransform.position.z), step);
-            if (transform.position.Equals(TarguetTransform.position))
+            if (Vector3.Distance(transform.position,TarguetTransform.position) < 0.1f)
             {
                 Attack();
             }

@@ -8,7 +8,7 @@ namespace Script
         public int Pool = 3;
         private IInstansable[] Tiros;
         public TiroDano Tiro;
-        
+        public BowControl Bow;
         public Transform TarguetTransform;       
         public float Speed = 1;
         [SerializeField] private float _speed;
@@ -36,7 +36,7 @@ namespace Script
         private void Awake()
         {
             SetTarguet();
-            
+            Bow = FindObjectOfType<BowControl>();
             Tiros = new IInstansable[Pool];
             
             for (int i = 0; i < Tiros.Length; i++)
@@ -71,7 +71,7 @@ namespace Script
                 return;
             
             _lastShoot = Time.timeSinceLevelLoad;
-            Tiros[_last] = Tiros[_last].Create(transform.position+ new Vector3(0.5f,0), transform.localRotation);
+            Tiros[_last] = Tiros[_last].Create(transform.position+ new Vector3(0.2f,0), transform.localRotation);
             _last = (_last+1)%Pool;
         }
 

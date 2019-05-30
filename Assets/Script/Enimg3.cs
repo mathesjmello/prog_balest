@@ -19,6 +19,7 @@ namespace Script
         }
         void Update()
         {
+            transform.LookAt(Bow.transform);
             Move();
         }
 
@@ -26,7 +27,7 @@ namespace Script
         {
             float step = Speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _trig, step);
-            if (transform.position.Equals(_trig))
+            if (Vector3.Distance(transform.position,_trig) < 0.1f)
             {
                 Shot();
             }

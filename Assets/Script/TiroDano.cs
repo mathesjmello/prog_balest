@@ -4,10 +4,12 @@ namespace Script
 {
     public class TiroDano: MonoBehaviour, IMovable, IWapom, IInstansable
     {
+        public bool Curse, Freeze;
         public Transform TarguetTransform;
         public int Speed=1;
         public int HitForce { get; set; } = 1;
-        
+        private DamegeManeger _maneger;
+        private BowControl _bow;
         TiroDano _self;
 
         private bool _update;
@@ -15,6 +17,8 @@ namespace Script
         private void Start()
         {
             SetTarguet();
+            _maneger = FindObjectOfType<DamegeManeger>();
+            _bow = FindObjectOfType<BowControl>();
         }
 
         private void Update()
@@ -41,8 +45,19 @@ namespace Script
         }
         public void Attack()
         {
-            var maneger = FindObjectOfType<DamegeManeger>();
-            maneger.TakeDamege(HitForce);
+            if (Curse)
+            {
+                _bow._atakSpeed = 1f;
+                _bow.NormalizeAttak();
+            }
+
+            if (Freeze)
+            {
+                _bow._rotSpeed = 10;
+                _bow.NormalizeRot();
+                
+            }
+            _maneger.TakeDamege(HitForce);
             _update = false;
         }
 

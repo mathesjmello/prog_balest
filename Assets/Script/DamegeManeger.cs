@@ -16,6 +16,8 @@ namespace Script
             if (Life<=0)
             {
                 EndCanvas.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 Time.timeScale = 0;
             }
         }
@@ -27,11 +29,17 @@ namespace Script
 
         public void Restar()
         {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             SceneManager.LoadScene(0);
         }
 
         public void Quit()
         {
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             SceneManager.LoadScene(1);
         }
         

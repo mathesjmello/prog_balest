@@ -9,19 +9,38 @@ public class BowControl : MonoBehaviour
     public float _rotSpeed = 100;
     public float Range=10;
     public Transform FireSpot;
-    public GameObject Arrow;
-    
+    public Arrow Arrow;
+    private List<Arrow> _arrows;
+    private int _currentArrow;
+    private float _time;
+
     // Start is called before the first frame update
     void Start()
     {
-        Invoke(nameof(FireArrow),_atakSpeed);
+        CreatePool();
+
+        FireArrow();
+    }
+
+    private void CreatePool()
+    {
+        _arrows = new List<Arrow>();
+
+        for (int i = 0; i < 1; i++)
+        {
+            _arrows.Add(Instantiate(Arrow,FireSpot.position, FireSpot.rotation));
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         MouseMove();
-        
+
+        if (Time.realtimeSinceStartup - _time > _atakSpeed)
+        {
+            FireArrow();
+        }
     }
 
     private void MouseMove()
@@ -33,8 +52,11 @@ public class BowControl : MonoBehaviour
 
     void FireArrow()
     {
-       var tmp = Instantiate(Arrow,FireSpot.position, FireSpot.rotation);
-        Invoke(nameof(FireArrow),_atakSpeed);
+        _time = Time.realtimeSinceStartup;
+        
+        _arrows[_currentArrow].Shoot(transform.forward);
+
+        _currentArrow = (_currentArrow + 1) % _arrows.Count;
     }
 
     public void NormalizeAttak()
@@ -49,8 +71,8 @@ public class BowControl : MonoBehaviour
 
     IEnumerator NormAtt()
     {
-            yield return new WaitForSeconds(5);
-            _atakSpeed = 0.5f;     
+        yield return new WaitForSeconds(5);
+        _atakSpeed = 0.5f;
     }
     IEnumerator NormRot()
     {

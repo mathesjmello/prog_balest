@@ -31,31 +31,31 @@ namespace Script
                 },
                 new CreateData
                 {
-                    e = Enimg1,
+                    e = Enimg2,
                     inc = 0,
                     interval = CriateTime * 1.4f
                 },
                 new CreateData
                 {
-                    e = Enimg1,
+                    e = Enimg3,
                     inc = 0,
                     interval = CriateTime * 2f
                 },
                 new CreateData
                 {
-                    e = Enimg1,
+                    e = Enimg4,
                     inc = 0,
                     interval = CriateTime * 2.3f
                 },
                 new CreateData
                 {
-                    e = Enimg1,
+                    e = Enimg5,
                     inc = 0,
                     interval = CriateTime * 1.7f
                 },
                 new CreateData
                 {
-                    e = Enimg1,
+                    e = Enimg6,
                     inc = 0,
                     interval = CriateTime * 3f
                 }

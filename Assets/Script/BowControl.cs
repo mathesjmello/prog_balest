@@ -10,17 +10,20 @@ public class BowControl : MonoBehaviour
     public float Range=10;
     public Transform FireSpot;
     public GameObject Arrow;
-    
+    public XRCameraController ArCamera;
+    public bool CanShoot;
+
     // Start is called before the first frame update
     void Start()
     {
         Invoke(nameof(FireArrow),_atakSpeed);
+        ArCamera = FindObjectOfType<XRCameraController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MouseMove();
+       // MouseMove();
         
     }
 
@@ -33,7 +36,10 @@ public class BowControl : MonoBehaviour
 
     void FireArrow()
     {
-       var tmp = Instantiate(Arrow,FireSpot.position, FireSpot.rotation);
+        if (CanShoot)
+        {
+            var tmp = Instantiate(Arrow,FireSpot.position, FireSpot.rotation);
+        }
         Invoke(nameof(FireArrow),_atakSpeed);
     }
 
@@ -54,7 +60,8 @@ public class BowControl : MonoBehaviour
     }
     IEnumerator NormRot()
     {
+        ArCamera._slow = true;
         yield return new WaitForSeconds(5);
-        _rotSpeed = 100;
+        ArCamera._slow = false;
     }
 }

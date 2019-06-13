@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,50 +12,75 @@ namespace Script
         private Vector3 _spamPosi1;
         public float CriateTime = 12;
 
+        struct CreateData
+        {
+            public BaseEnimig e;
+            public int inc;
+            public float interval;
+        }
 
         void Start()
         {
-            _spamPosi1 = SpamTrans1.position;
-            Invoke(nameof(Criate1), CriateTime);
-            Invoke(nameof(Criate2), CriateTime * 1.4f);
-            Invoke(nameof(Criate3), CriateTime * 2f);
-            Invoke(nameof(Criate4), CriateTime * 2.3f);
-            Invoke(nameof(Criate5), CriateTime * 1.7f);
-            Invoke(nameof(Criate6), CriateTime * 3f);
+            var data = new CreateData[6]
+            {
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime
+                },
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime * 1.4f
+                },
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime * 2f
+                },
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime * 2.3f
+                },
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime * 1.7f
+                },
+                new CreateData
+                {
+                    e = Enimg1,
+                    inc = 0,
+                    interval = CriateTime * 3f
+                }
+            };
+            
+            StopAllCoroutines();
+
+            foreach (var createData in data)
+            {
+                StartCoroutine(nameof(Create),createData);
+            }
         }
 
-
-
-        void Criate1()
+        IEnumerator Create(CreateData data)
         {
-            Enimg1.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate1), CriateTime);
+            while (true)
+            {
+                yield return new WaitForSecondsRealtime(data.interval);
+                data.e.Create(new Vector3(Random.Range(-20, 20), SpamTrans1.position.y + data.inc, SpamTrans1.position.z),
+                    SpamTrans1.rotation);
+                if (FindObjectOfType<DamegeManeger>().Life <= 0)
+                {
+                    break;
+                }
+            }
         }
-        void Criate2()
-        {
-            Enimg2.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate2), CriateTime*1.4f);
-        }
-        void Criate3()
-        {
-            Enimg3.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate3), CriateTime*2f);
-        }
-        void Criate4()
-        {
-            Enimg4.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate4), CriateTime*2.3f);
-        }
-        void Criate5()
-        {
-            Enimg5.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y+3, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate5), CriateTime * 1.7f);
-        }
-        void Criate6()
-        {
-            Enimg6.Create(new Vector3(Random.Range(-20, 20), _spamPosi1.y+2, _spamPosi1.z), SpamTrans1.rotation);
-            Invoke(nameof(Criate6), CriateTime * 3f);
-        }
-        
     }
 }
